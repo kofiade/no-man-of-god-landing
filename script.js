@@ -112,11 +112,15 @@ function initCastTabs() {
             const target = tab.getAttribute('data-tab');
             
             // Remove active from all tabs and contents
-            tabs.forEach(t => t.classList.remove('active'));
+            tabs.forEach(t => {
+                t.classList.remove('active');
+                t.setAttribute('aria-selected', 'false');
+            });
             contents.forEach(c => c.classList.remove('active'));
             
             // Add active to clicked tab and target content
             tab.classList.add('active');
+            tab.setAttribute('aria-selected', 'true');
             const targetContent = document.getElementById(target);
             if (targetContent) {
                 targetContent.classList.add('active');
@@ -287,11 +291,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 /**
- * Parallax effect for hero section (subtle)
+ * Parallax effect for hero section (throttled with rAF)
  */
+let ticking = false;
 window.addEventListener('scroll', () => {
-    const hero = document.querySelector('.hero-background');
-    if (hero && window.pageYOffset < window.innerHeight) {
-        hero.style.transform = `translateY(${window.pageYOffset * 0.3}px)`;
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            const hero = document.querySelector('.hero-background');
+            if (hero && window.pageYOffset < window.innerHeight) {
+                hero.style.transform = `translateY(${window.pageYOffset * 0.3}px)`;
+            }
+            ticking = false;
+        });
+        ticking = true;
     }
 });

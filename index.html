@@ -36,7 +36,7 @@
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="hero-background">
-            <img src="assets/hero-poster.png" alt="No Man Of God - Movie Banner" class="hero-image">
+            <img src="assets/hero-poster.png" alt="No Man Of God - Movie Banner" class="hero-image" fetchpriority="high" decoding="async">
             <div class="hero-overlay"></div>
         </div>
         <div class="hero-content">
@@ -91,7 +91,7 @@
                     </div>
                 </div>
                 <div class="story-image">
-                    <img src="assets/poster-drama.jpg" alt="No Man Of God - Dramatic Scene" class="story-poster">
+                    <img src="assets/poster-drama.jpg" alt="No Man Of God - Dramatic Scene" class="story-poster" loading="lazy">
                     <div class="image-frame"></div>
                 </div>
             </div>
@@ -170,16 +170,16 @@
             <div class="gallery-divider"></div>
 
             <!-- Cast Tabs -->
-            <div class="cast-tabs">
-                <button class="cast-tab active" data-tab="actors">Actors</button>
-                <button class="cast-tab" data-tab="crew">Director & Producers</button>
+            <div class="cast-tabs" role="tablist">
+                <button class="cast-tab active" data-tab="actors" role="tab" aria-selected="true" aria-controls="actors">Actors</button>
+                <button class="cast-tab" data-tab="crew" role="tab" aria-selected="false" aria-controls="crew">Director & Producers</button>
             </div>
             
             <!-- Actors Grid -->
-            <div class="cast-grid cast-tab-content active" id="actors">
+            <div class="cast-grid cast-tab-content active" id="actors" role="tabpanel" aria-label="Actors">
                 <div class="cast-card" data-role="Lead Actor">
                     <div class="card-image">
-                        <img src="assets/cast/majid-michel.jpg" alt="Majid Michel">
+                        <img src="assets/cast/majid-michel.jpg" alt="Majid Michel" loading="lazy">
                         <div class="card-overlay">
                             <div class="card-details">
                                 <p class="character-name">as James Yamoah / Michael</p>
@@ -195,7 +195,7 @@
 
                 <div class="cast-card" data-role="Actress">
                     <div class="card-image">
-                        <img src="assets/cast/bamike-olawunmi.jpg" alt="Bamike Olawunmi">
+                        <img src="assets/cast/bamike-olawunmi.jpg" alt="Bamike Olawunmi" loading="lazy">
                         <div class="card-overlay">
                             <div class="card-details">
                                 <p class="character-name">as Yaa, Afia's Mother</p>
@@ -211,7 +211,7 @@
 
                 <div class="cast-card" data-role="Actor">
                     <div class="card-image">
-                        <img src="assets/cast/adjetey-anang.jpg" alt="Adjetey Anang">
+                        <img src="assets/cast/adjetey-anang.jpg" alt="Adjetey Anang" loading="lazy">
                         <div class="card-overlay">
                             <div class="card-details">
                                 <p class="character-name">as Sam (Antagonist)</p>
@@ -227,7 +227,7 @@
 
                 <div class="cast-card" data-role="Actor">
                     <div class="card-image">
-                        <img src="assets/cast/james-gardiner.jpg" alt="James Gardiner">
+                        <img src="assets/cast/james-gardiner.jpg" alt="James Gardiner" loading="lazy">
                         <div class="card-overlay">
                             <div class="card-details">
                                 <p class="character-name">as Sampson</p>
@@ -243,7 +243,7 @@
 
                 <div class="cast-card" data-role="Actress">
                     <div class="card-image">
-                        <img src="assets/cast/nikki-samonas.jpg" alt="Nikki Samonas">
+                        <img src="assets/cast/nikki-samonas.jpg" alt="Nikki Samonas" loading="lazy">
                         <div class="card-overlay">
                             <div class="card-details">
                                 <p class="character-name">as Bob</p>
@@ -259,7 +259,7 @@
 
                 <div class="cast-card" data-role="Actress">
                     <div class="card-image">
-                        <img src="assets/cast/gadede-segbefia.jpg" alt="Gadede Segbefia">
+                        <img src="assets/cast/gadede-segbefia.jpg" alt="Gadede Segbefia" loading="lazy">
                         <div class="card-overlay">
                             <div class="card-details">
                                 <p class="character-name">as Afia</p>
@@ -275,10 +275,10 @@
             </div>
 
             <!-- Crew Grid -->
-            <div class="cast-grid crew-grid cast-tab-content" id="crew">
+            <div class="cast-grid crew-grid cast-tab-content" id="crew" role="tabpanel" aria-label="Director and Producers">
                 <div class="cast-card" data-role="Director">
                     <div class="card-image">
-                        <img src="assets/cast/ampong-kwakye.jpg" alt="Ampong K. Kwakye">
+                        <img src="assets/cast/ampong-kwakye.jpg" alt="Ampong K. Kwakye" loading="lazy">
                         <div class="card-overlay">
                             <div class="card-details">
                                 <p class="bio">Multi-talented Ghanaian theatre-trained director. Known for his blockbuster work The Unit X. Co-CEO of Kornerstonez Productions. His directorial debut "The Groomsmen" is available on Amazon Prime Video and Tubi. Holds a first class degree in Theatre Arts and a Master of Philosophy in Arts and Culture.</p>
@@ -293,7 +293,7 @@
 
                 <div class="cast-card" data-role="Executive Producer">
                     <div class="card-image">
-                        <img src="assets/cast/felix-ankuma.jpg" alt="Felix Appiah Ankuma">
+                        <img src="assets/cast/felix-ankuma.jpg" alt="Felix Appiah Ankuma" loading="lazy">
                         <div class="card-overlay">
                             <div class="card-details">
                                 <p class="bio">Founder and CEO of BizGPS Solutions Limited, a fleet management and software company in Accra. Former Banker at Standard Chartered Bank Ghana with 11 years of experience. Alumni of KNUST with BSC Mathematics; holds an eMBA from CEIBS, Shanghai.</p>
@@ -308,7 +308,7 @@
 
                 <div class="cast-card" data-role="Executive Producer">
                     <div class="card-image">
-                        <img src="assets/cast/akofa-edjeani.jpg" alt="Akofa Edjeani Asiedu">
+                        <img src="assets/cast/akofa-edjeani.jpg" alt="Akofa Edjeani Asiedu" loading="lazy">
                         <div class="card-overlay">
                             <div class="card-details">
                                 <p class="bio">Veteran Ghanaian film actress, producer and entrepreneur. Her short film "Not My Daughter" won Best Short Film at the AMAA in 2008. Studied Performing Arts at the University of Ghana. One of Ghana's finest veteran actors and producers.</p>
@@ -334,7 +334,7 @@
             <div class="video-grid">
                 <div class="video-card featured">
                     <div class="video-thumbnail">
-                        <img src="assets/hero-banner.jpg" alt="Official Trailer">
+                        <img src="assets/hero-banner.jpg" alt="Official Trailer" loading="lazy">
                         <div class="video-overlay">
                             <button class="play-button" aria-label="Play Official Trailer">
                                 <span class="play-icon">▶</span>
@@ -350,7 +350,7 @@
                 
                 <div class="video-card" data-url="https://www.youtube.com/watch?v=_O_b8ZTIL_o">
                     <div class="video-thumbnail">
-                        <img src="assets/behind-scenes.jpg" alt="Behind The Scenes">
+                        <img src="assets/behind-scenes.jpg" alt="Behind The Scenes" loading="lazy">
                         <div class="video-overlay">
                             <button class="play-button" aria-label="Play Behind The Scenes">
                                 <span class="play-icon">▶</span>
@@ -366,7 +366,7 @@
                 
                 <div class="video-card" data-url="https://youtu.be/x-RzTYcf1FU?si=9FhGQT_a9F8MTIYL">
                     <div class="video-thumbnail">
-                        <img src="assets/press-launch.jpg" alt="Press Launch Event">
+                        <img src="assets/press-launch.jpg" alt="Press Launch Event" loading="lazy">
                         <div class="video-overlay">
                             <button class="play-button" aria-label="Play Press Launch">
                                 <span class="play-icon">▶</span>
@@ -385,7 +385,7 @@
     <!-- Concert & Event Section -->
     <section class="concert" id="concert">
         <div class="concert-background">
-            <img src="assets/press-launch.jpg" alt="" class="concert-bg-image">
+            <img src="assets/press-launch.jpg" alt="" class="concert-bg-image" loading="lazy">
             <div class="concert-overlay"></div>
         </div>
         <div class="container">
@@ -505,7 +505,7 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="assets/press-launch.jpg" alt="Kornerstonez Productions" class="about-photo">
+                    <img src="assets/press-launch.jpg" alt="Kornerstonez Productions" class="about-photo" loading="lazy">
                     <div class="image-frame"></div>
                 </div>
             </div>
@@ -515,7 +515,7 @@
     <!-- Newsletter Section -->
     <section class="newsletter" id="newsletter">
         <div class="newsletter-background">
-            <img src="assets/cast-photo.jpg" alt="" class="newsletter-bg-image">
+            <img src="assets/cast-photo.jpg" alt="" class="newsletter-bg-image" loading="lazy">
             <div class="newsletter-overlay"></div>
         </div>
         <div class="container">
@@ -533,6 +533,7 @@
                             id="email-input"
                             placeholder="Enter your email address" 
                             required
+                            aria-label="Email address"
                             class="form-input"
                         >
                         <button type="submit" class="btn btn-gold">

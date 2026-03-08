@@ -10,7 +10,7 @@
     --color-charcoal: #1a1a1a;
     --color-charcoal-light: #2a2a2a;
     --color-grey-dark: #3a3a3a;
-    --color-grey: #6a6a6a;
+    --color-grey: #8a8a8a;
     --color-grey-light: #9a9a9a;
     --color-white: #f5f5f5;
     --color-white-pure: #ffffff;
@@ -20,6 +20,7 @@
     --color-gold-light: #e0c97f;
     --color-gold-dark: #a68b4b;
     --color-gold-gradient: linear-gradient(135deg, #c9a962 0%, #e0c97f 50%, #a68b4b 100%);
+    --color-gold-text: #d4b56a;
     
     /* Tier Colors */
     --color-diamond: #b9f2ff;
@@ -66,6 +67,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -259,6 +261,7 @@ button {
     object-position: center 25%;
     transform: scale(1.1);
     animation: heroZoom 20s ease-in-out infinite alternate;
+    will-change: transform;
 }
 
 @keyframes heroZoom {
@@ -560,7 +563,7 @@ button {
 }
 
 .story-logline {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
     font-weight: 300;
     line-height: 1.8;
     color: var(--color-grey-light);
@@ -799,6 +802,7 @@ button {
     background: rgba(10, 10, 10, 0.5);
     opacity: 0;
     transition: var(--transition-medium);
+    will-change: opacity;
 }
 
 .video-card:hover .video-overlay {
@@ -965,6 +969,7 @@ button {
     padding: var(--space-md);
     opacity: 0;
     transition: var(--transition-medium);
+    will-change: opacity;
 }
 
 .cast-card:hover .card-overlay {
@@ -1087,7 +1092,7 @@ button {
     max-width: 700px;
     margin: 0 auto var(--space-xl);
     text-align: center;
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
     line-height: 1.8;
     color: var(--color-grey-light);
 }
@@ -1151,7 +1156,7 @@ button {
 
 .composer-name {
     font-family: var(--font-display);
-    font-size: 1.6rem;
+    font-size: clamp(1.3rem, 2.5vw, 1.6rem);
     font-weight: 600;
     color: var(--color-white-pure);
     margin-bottom: var(--space-sm);
@@ -1566,7 +1571,7 @@ button {
     }
     
     .video-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
     
     .video-card.featured {
@@ -1580,6 +1585,20 @@ button {
     
     .crew-grid {
         grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .footer-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-md);
+    }
+    
+    .footer-contact {
+        text-align: right;
+    }
+    
+    .footer-social {
+        justify-self: end;
     }
     
     .structure-grid {
@@ -1610,6 +1629,14 @@ button {
         --space-xl: 4rem;
         --space-2xl: 5rem;
     }
+
+    .container {
+        padding: 0 var(--space-sm);
+    }
+
+    .hero-content {
+        padding: var(--space-md);
+    }
     
     .nav-menu {
         position: fixed;
@@ -1636,6 +1663,12 @@ button {
     .nav-toggle {
         display: flex;
         z-index: 1001;
+    }
+    
+    .nav-link {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
     }
     
     .nav-toggle.active .hamburger {
@@ -1678,6 +1711,21 @@ button {
     
     .themes-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .cast-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 600px;
+    }
+
+    /* Touch-friendly: show cast card overlay on mobile */
+    .card-overlay {
+        opacity: 1;
+        background: linear-gradient(to top, rgba(10, 10, 10, 0.9) 0%, rgba(10, 10, 10, 0.4) 50%, transparent 80%);
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
     }
     
     .sponsor-tiers {
@@ -1785,4 +1833,55 @@ button {
 /* Smooth loading */
 body.loaded .hero-content {
     animation: fadeInUp 1.2s ease-out;
+}
+
+/* ----------------------------------------
+   FOCUS-VISIBLE STYLES (Keyboard Navigation)
+   ---------------------------------------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--color-gold-light);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 4px rgba(201, 169, 98, 0.25);
+}
+
+/* ----------------------------------------
+   REDUCED MOTION
+   ---------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .hero-image {
+        animation: none;
+        transform: scale(1);
+    }
+    
+    .fade-in {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* ----------------------------------------
+   SHORT VIEWPORT (hide hero scroll indicator)
+   ---------------------------------------- */
+@media (max-height: 700px) {
+    .hero-scroll {
+        display: none;
+    }
+    
+    .hero-content {
+        padding: var(--space-sm);
+    }
 }
