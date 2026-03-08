@@ -962,14 +962,24 @@ button {
 
 .card-overlay {
     position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.6) 50%, transparent 80%);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-height: 100%;
+    background: linear-gradient(
+        to top,
+        rgba(10, 10, 10, 0.98) 0%,
+        rgba(10, 10, 10, 0.85) 30%,
+        rgba(10, 10, 10, 0.5) 60%,
+        transparent 100%
+    );
     display: flex;
     align-items: flex-end;
-    padding: var(--space-md);
+    padding: 0;
     opacity: 0;
     transition: var(--transition-medium);
     will-change: opacity;
+    overflow: hidden;
 }
 
 .cast-card:hover .card-overlay {
@@ -987,23 +997,39 @@ button {
 
 .card-details {
     text-align: left;
+    width: 100%;
+    padding: var(--space-md);
+    padding-top: var(--space-lg);
+    background: linear-gradient(
+        to top,
+        rgba(10, 10, 10, 0.95) 0%,
+        rgba(10, 10, 10, 0.7) 60%,
+        transparent 100%
+    );
 }
 
 .character-name {
     font-family: var(--font-display);
-    font-size: 0.8rem;
-    font-weight: 500;
+    font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+    font-weight: 600;
     letter-spacing: 1px;
-    color: var(--color-gold);
+    color: var(--color-gold-text);
     margin-bottom: var(--space-xs);
     text-transform: uppercase;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 .card-details .bio {
-    font-size: 0.85rem;
+    font-size: clamp(0.75rem, 1.4vw, 0.85rem);
     line-height: 1.5;
-    color: var(--color-grey-light);
-    margin-bottom: var(--space-sm);
+    color: var(--color-white);
+    margin-bottom: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
 }
 
 .social-links {
@@ -1721,7 +1747,27 @@ button {
     /* Touch-friendly: show cast card overlay on mobile */
     .card-overlay {
         opacity: 1;
-        background: linear-gradient(to top, rgba(10, 10, 10, 0.9) 0%, rgba(10, 10, 10, 0.4) 50%, transparent 80%);
+        background: linear-gradient(
+            to top,
+            rgba(10, 10, 10, 0.98) 0%,
+            rgba(10, 10, 10, 0.9) 35%,
+            rgba(10, 10, 10, 0.5) 65%,
+            transparent 100%
+        );
+    }
+
+    .card-details {
+        padding: var(--space-sm);
+        padding-top: var(--space-md);
+    }
+
+    .card-details .bio {
+        -webkit-line-clamp: 3;
+        font-size: 0.75rem;
+    }
+
+    .character-name {
+        font-size: 0.7rem;
     }
 
     .video-grid {
