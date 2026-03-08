@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/78817045-2a3e-4b01-8039-72761d02b97a/resourceGroups/nomanofgod_group/providers/Microsoft.Web/sites/nomanofgod",
+    "appService.deploySubpath": "."
+}

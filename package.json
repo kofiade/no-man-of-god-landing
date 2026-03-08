@@ -1,0 +1,11 @@
+{
+    "name": "no-man-of-god-landing",
+    "version": "1.0.0",
+    "description": "Landing page for No Man Of God movie",
+    "scripts": {
+        "start": "npx http-server . -p $PORT"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    }
+}
